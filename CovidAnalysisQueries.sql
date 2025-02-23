@@ -36,7 +36,7 @@ FROM `portfolioproject-449608.CovidDeaths.CovidDeaths`
 GROUP BY Location, Population
 ORDER BY PercentofPopulationInfected DESC
 
---Showing the countries witht the highest death count per population
+--Showing the countries with the highest death count per population
 
 SELECT Location, MAX(CAST(total_deaths AS INT)) AS TotalDeathCount
 FROM `portfolioproject-449608.CovidDeaths.CovidDeaths` 
@@ -54,7 +54,7 @@ WHERE continent is null
 GROUP BY location
 ORDER BY TotalDeathCount DESC
 
---Global numbers
+--Looking at the total new cases and new deaths globally
 
 SELECT date, SUM(new_cases) as total_new_cases, SUM(new_deaths) as total_new_deaths, SUM(new_deaths)/SUM(new_cases)*100 as DeathPercent
 FROM `portfolioproject-449608.CovidDeaths.CovidDeaths` 
